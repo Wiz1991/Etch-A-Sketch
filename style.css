@@ -1,0 +1,59 @@
+:root {
+  --grid-size: 16;
+  --border: 2px dashed #393939;
+}
+@font-face{
+  font-family: 'Etch-A-Sketch';
+  src: url('/Etchasketch-n6vR.ttf') format('truetype')
+}
+#grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), 1fr);
+  grid-template-rows: repeat(var(--grid-size), 1fr);
+  height: 40rem;
+  width: 40vw;
+  border: 1em solid grey;
+  margin: 0 auto;
+  margin-bottom: 150px;
+  background-color: rgba(116, 107, 107, 0.918);
+  gap: 1px;
+
+}
+.cell{
+  background-color: white;
+}
+.cell:hover{
+  background-color: hsla(0, 100%, 38%, 1);
+}
+.settings{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em auto;
+  width: 10rem;
+}
+.button{
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  outline: none;
+  cursor: pointer;
+}
+.red-button{
+  background-color: red;
+}
+.green-button{
+  background-color: #4CAF50;
+}
+.title{
+  font-family: 'Etch-A-Sketch';
+  font-size: 90px;
+  text-align: center;
+  margin: 10px;
+}
