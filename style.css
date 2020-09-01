@@ -7,7 +7,7 @@ body{
 }
 @font-face{
   font-family: 'Etch-A-Sketch';
-  src: url('https://github.com/Wiz1991/Etch-A-Sketch/blob/master/Etchasketch-n6vR.ttf') format('truetype')
+  src: url('../Etchasketch-n6vR.ttf') format('truetype')
 }
 #grid {
   display: grid;
