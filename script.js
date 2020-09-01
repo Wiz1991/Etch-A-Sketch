@@ -1,10 +1,26 @@
+function getRGB(str){
+    var match = str.match(/rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/);
+    return match ? {
+       rgb: [
+      match[1],
+      match[2],
+      match[3]
+        ]
+    } : {rgb: []};
+  }
+
+
+////////////////SKETCH///////////////////////
 const grid = document.getElementById("grid")
 let RGBPencil = false
+const pencilOpacity = 40
+
 function CreateGrid(size){
     grid.style.setProperty('--grid-size',size)
     for(let i=0; i<(size * size);i++){
         let cell = document.createElement('div')
         cell.addEventListener('mouseover',e => ColorCell(e))
+        cell.style.setProperty('background-color','#ffffff')
         grid.appendChild(cell).className='cell'
     }
 }
@@ -14,14 +30,19 @@ function ColorCell(e){
         e.target.style.setProperty('background-color','#' + randomColor)
     }
     else{
-        e.target.style.setProperty('background-color','black')
+        let rgbValue = getRGB(e.target.style.backgroundColor)
+        rgbValue['rgb'].forEach(function(val,index,arr){
+            val = Math.max(0,val - pencilOpacity)
+            arr[index]=val
+        })
+        e.target.style.backgroundColor=`rgb(${rgbValue['rgb'].join(',')})`
     }
 }
 function ClearGrid(){
     let cells = grid.children;
     for(let i=0; i< cells.length; i++){
         let cell = cells[i]
-        cell.style.setProperty('background-color','white')
+        cell.style.setProperty('background-color','#ffffff')
     }
 }
 function ChangeSize(){
@@ -40,4 +61,5 @@ function ToggleRGB(){
     RGBPencil = !RGBPencil
 }
 
-CreateGrid(32,32)
+
+CreateGrid(16,16)

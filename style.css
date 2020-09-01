@@ -2,6 +2,9 @@
   --grid-size: 16;
   --border: 2px dashed #393939;
 }
+body{
+  background-color: #1a1a2e;
+}
 @font-face{
   font-family: 'Etch-A-Sketch';
   src: url('/Etchasketch-n6vR.ttf') format('truetype')
@@ -12,7 +15,7 @@
   grid-template-rows: repeat(var(--grid-size), 1fr);
   height: 40rem;
   width: 40vw;
-  border: 1em solid grey;
+  border: 1em solid #0f3460;
   margin: 0 auto;
   margin-bottom: 150px;
   background-color: rgba(116, 107, 107, 0.918);
@@ -20,11 +23,9 @@
 
 }
 .cell{
-  background-color: white;
+  background-color: #ffffff;
 }
-.cell:hover{
-  background-color: hsla(0, 100%, 38%, 1);
-}
+
 .settings{
   display: flex;
   flex-direction: column;
@@ -44,16 +45,12 @@
   margin: 4px 2px;
   outline: none;
   cursor: pointer;
-}
-.red-button{
-  background-color: red;
-}
-.green-button{
-  background-color: #4CAF50;
+  background-color: #e94560;
 }
 .title{
   font-family: 'Etch-A-Sketch';
   font-size: 90px;
+  color:white;
   text-align: center;
   margin: 10px;
 }
